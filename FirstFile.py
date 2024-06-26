@@ -37,7 +37,7 @@ workbook.save(path)
 
 logging.basicConfig(filename='log.txt',
                     format='%(asctime)s: %(levelname)s: %(message)s ',
-                    datefmt='%d %m %y %I: %M: %S %p',
+                    datefmt='%d %m %y %I:%M:%S %p',
                     level=logging.DEBUG)
 
 logging.debug("This is a Debug")
