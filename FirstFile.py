@@ -1,4 +1,5 @@
 import openpyxl
+import logging
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -33,3 +34,13 @@ for r in range(1,6):
         res=sheet.cell(row=r,column=c).value='Automation is Very Good'
         print(res)
 workbook.save(path)
+
+logging.basicConfig(filename='log.txt',
+                    format='%(asctime)s: %(levelname)s: %(message)s ',
+                    level=logging.DEBUG)
+
+logging.debug("This is a Debug")
+logging.info("This is a Info")
+logging.warning("This is a Warning")
+logging.error("This is a Error")
+logging.critical("This is a Critical")
