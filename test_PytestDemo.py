@@ -12,7 +12,7 @@ class TestPractice:
     email="ji@gmail.com"
     address="80, Ashok Nagar \n Chennai \n Tamilnadu"
     password="Dummypassowrd"
-    @pytest.fixture()
+    @pytest.fixture(autouse=True)
     def setup(self):
         self.options = webdriver.ChromeOptions()
         self.options.add_experimental_option('detach',True)
@@ -20,7 +20,7 @@ class TestPractice:
         self.driver.maximize_window()
         yield
         self.driver.close()
-    def test_element_textbox(self,setup):
+    def test_element_textbox(self):
         self.wait=WebDriverWait(self.driver,10)
         self.driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php")
         self.wait.until(ec.element_to_be_clickable((By.XPATH,"//button[text()=' Elements']"))).click()
