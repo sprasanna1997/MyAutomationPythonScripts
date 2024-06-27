@@ -31,5 +31,16 @@ class TestPractice:
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "//input[contains(@id,'password')]"))).send_keys(self.password)
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "// input[ @ value = 'Submit']"))).click()
 
-    def test_signout(self):
-        print("SignOut Successful")
+    def test_element_checkbox(self):
+        self.wait=WebDriverWait(self.driver,10)
+        self.driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php")
+        self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[text()=' Elements']"))).click()
+        self.wait.until(ec.element_to_be_clickable((By.XPATH,"//a[text()=' Check Box']"))).click()
+        self.wait.until(ec.element_to_be_clickable((By.XPATH,"(//span[@class='plus'])[1]"))).click()
+        time.sleep(2)
+        self.wait.until(ec.element_to_be_clickable((By.XPATH,"(//span[@class='plus'])[1]"))).click()
+        time.sleep(2)
+        self.wait.until(ec.element_to_be_clickable((By.XPATH,"(//input[@type='checkbox'])[6]"))).click()
+        time.sleep(2)
+        self.wait.until(ec.element_to_be_clickable((By.XPATH, "(//span[@class='plus'])[1]"))).click()
+        time.sleep(2)
