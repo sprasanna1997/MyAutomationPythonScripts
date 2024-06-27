@@ -31,5 +31,5 @@ class TestPractice:
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "//input[contains(@id,'password')]"))).send_keys(self.password)
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "// input[ @ value = 'Submit']"))).click()
 
-    def test_signout(self,setup):
+    def test_signout(self):
         print("SignOut Successful")
