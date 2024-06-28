@@ -12,16 +12,16 @@ class TestPractice:
     email="ji@gmail.com"
     address="80, Ashok Nagar \n Chennai \n Tamilnadu"
     password="Dummypassowrd"
-    @pytest.fixture(autouse=True,scope="session")
+    @pytest.fixture(autouse=True)
     def setup(self):
         self.options = webdriver.ChromeOptions()
         self.options.add_experimental_option('detach',True)
         self.driver= webdriver.Chrome(options=self.options)
         self.driver.maximize_window()
-        self.driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php")
         yield
         self.driver.close()
     def test_element_textbox(self):
+        self.driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php")
         self.wait = WebDriverWait(self.driver, 10)
         self.wait.until(ec.element_to_be_clickable((By.XPATH,"//button[text()=' Elements']"))).click()
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "//a[text()=' Text Box']"))).click()
@@ -32,6 +32,7 @@ class TestPractice:
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "// input[ @ value = 'Submit']"))).click()
 
     def test_element_checkbox(self):
+        self.driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php")
         self.wait = WebDriverWait(self.driver, 10)
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[text()=' Elements']"))).click()
         self.wait.until(ec.element_to_be_clickable((By.XPATH,"//a[text()=' Check Box']"))).click()
