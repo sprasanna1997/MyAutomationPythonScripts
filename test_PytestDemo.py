@@ -15,7 +15,6 @@ class TestPractice:
     password="Dummypassowrd"
 
     def test_element_textbox(self):
-        self.driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php")
         self.wait = WebDriverWait(self.driver, 10)
         self.wait.until(ec.element_to_be_clickable((By.XPATH,"//button[text()=' Elements']"))).click()
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "//a[text()=' Text Box']"))).click()
@@ -26,15 +25,18 @@ class TestPractice:
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "// input[ @ value = 'Submit']"))).click()
 
     def test_element_checkbox(self):
-        self.driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php")
         self.wait = WebDriverWait(self.driver, 10)
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[text()=' Elements']"))).click()
         self.wait.until(ec.element_to_be_clickable((By.XPATH,"//a[text()=' Check Box']"))).click()
         self.wait.until(ec.element_to_be_clickable((By.XPATH,"(//span[@class='plus'])[1]"))).click()
-        time.sleep(2)
         self.wait.until(ec.element_to_be_clickable((By.XPATH,"(//span[@class='plus'])[1]"))).click()
-        time.sleep(2)
         self.wait.until(ec.element_to_be_clickable((By.XPATH,"(//input[@type='checkbox'])[6]"))).click()
-        time.sleep(2)
         self.wait.until(ec.element_to_be_clickable((By.XPATH, "(//span[@class='plus'])[1]"))).click()
-        time.sleep(2)
+
+    def test_element_radiobtn(self):
+        self.wait=WebDriverWait(self.driver,10)
+        self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[text()=' Elements']"))).click()
+        self.wait.until(ec.element_to_be_clickable((By.XPATH, "//a[text()=' Radio Button']"))).click()
+        self.wait.until(ec.element_to_be_clickable((By.XPATH,"//input[@type='radio']/.. //*[text()='Yes']"))).click()
+        res=self.driver.find_element(By.XPATH,"//div[@id='check'] /b").text
+        print("You have Checked: "+res)
