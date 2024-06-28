@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 
+@pytest.mark.usefixtures("setup")
 class TestPractice:
 
     #Variable Name
@@ -12,14 +13,7 @@ class TestPractice:
     email="ji@gmail.com"
     address="80, Ashok Nagar \n Chennai \n Tamilnadu"
     password="Dummypassowrd"
-    @pytest.fixture(autouse=True)
-    def setup(self):
-        self.options = webdriver.ChromeOptions()
-        self.options.add_experimental_option('detach',True)
-        self.driver= webdriver.Chrome(options=self.options)
-        self.driver.maximize_window()
-        yield
-        self.driver.close()
+
     def test_element_textbox(self):
         self.driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php")
         self.wait = WebDriverWait(self.driver, 10)
