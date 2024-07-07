@@ -5,7 +5,7 @@ from selenium import webdriver
 def setup(request):
     options = webdriver.ChromeOptions()
     options.add_experimental_option('detach',True)
-    driver= webdriver.Chrome(r"D:\Automation\chromedriver.exe",options=options)
+    driver= webdriver.Chrome(options=options)
 
     driver.maximize_window()
     driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php")
